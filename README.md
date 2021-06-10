@@ -1,2 +1,4 @@
 # LeTalk
-## A Chating Platform
+## Realtime Chat Application Using Django
+## http://letalk.pythonanywhere.com/
+### Currently Under Development
