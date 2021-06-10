@@ -5,7 +5,7 @@
     <title>{% block title %} {% endblock %}</title>
     {% load static %}
     <link href="{%  static  'Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{%  static  'mystyle.css'%}" rel="stylesheet">
+    <link href="{% static 'chat/base.css' %}" rel="stylesheet">
     <script src="{%  static  'Bootstrap/js/bootstrap.min.js'%}" type="text/js">
     </script>
 </head>
@@ -34,7 +34,7 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="text-muted">
+        <p>
             Developed by Rahul Choudhary and Abhishek Jha
         </p>
     </div>
