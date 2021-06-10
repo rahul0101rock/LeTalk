@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!-- saved from url=(0095)https://www.pythonanywhere.com/user/lettalk/files/home/lettalk/lettalk/chat/templates/base.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html>
+<head>
+    <meta charset="utf-8">
     <title>{% block title %} {% endblock %}</title>
-    </head><body data-new-gr-c-s-check-loaded="14.1014.0" data-gr-ext-installed="">{% load static %}
-    <link href="./base_files/bootstrap.min.css&#39; %}" rel="stylesheet">
-    <link href="./base_files/{%  static  &#39;mystyle.css&#39; %}" rel="stylesheet">
-    <script src="./base_files/bootstrap.min.js&#39;%}" type="text/js">
+    {% load static %}
+    <link href="{%  static  'Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{%  static  'mystyle.css'%}" rel="stylesheet">
+    <script src="{%  static  'Bootstrap/js/bootstrap.min.js'%}" type="text/js">
     </script>
-
-
+</head>
+<body>
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -18,12 +18,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="https://www.pythonanywhere.com/">LeTalk</a>
+            <a class="navbar-brand" href="/">LetTalk</a>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://www.pythonanywhere.com/login">Login</a></li>
-                <li><a href="https://www.pythonanywhere.com/register">Register</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
             </ul>
         </div>
     </div>
@@ -34,11 +34,10 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <p>
-           ©LeTalk2021 copyright
+        <p class="text-muted">
+            Developed by Rahul Choudhary and Abhishek Jha
         </p>
     </div>
 </footer>
-
-
-</body></html>
+</body>
+</html>
