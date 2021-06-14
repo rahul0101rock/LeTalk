@@ -6,7 +6,38 @@
     <title>{% block title %} {% endblock %}</title>
     {% load static %}
     <link href="{%  static  'chat/Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'chat/base.css' %}" rel="stylesheet">
+    <style>
+        html{
+          position: relative;
+          min-height: 100%;
+        }
+        body{
+          margin-bottom: 50px;
+        }
+        a{
+          color: #000000;
+        }
+        a:hover{
+          color: green;
+          text-decoration: none;
+        }
+        .center{
+          text-align: center;
+        }
+        .footer{
+          position:absolute;
+          width: 100%;
+          bottom: 0;
+          height: 50px;
+          color:blue;
+        }
+        .img{
+          width: 360px;
+          height: 640px;
+        }
+    </style>
+    {% block css %}
+    {% endblock %}
     <link href="{% static 'chat/css/vanilla-zoom.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">

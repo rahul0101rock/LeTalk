@@ -3,6 +3,18 @@
 Login
 {% endblock %}
 
+{% block css %}
+    <style>
+    hr{
+        width:25%;
+        self-align:center;
+    }
+    h3{
+        text-align:center;
+    }
+    </style>
+{% endblock %}
+
 {% block nav %}
 <div class="collapse navbar-collapse" id="navdata">
     <ul class="navbar-nav ms-auto">
@@ -12,14 +24,11 @@ Login
 </div>
 {% endblock %}
 {% block content %}
+<h3>Login</h3>
+<hr>
 <div>
-    <form style="text-align:center;padding:10px;background-color:lightgray;width:40%;margin-left:350px;border-radius:2%;font-family: Georgia, serif;font-size:medium;">
-        <h2>Log in</h2><br>
-        Username <input type="text" required=""><br><br>
-        Password <input type="password" required=""><br><br>
-        <input type="checkbox" checked> Remember me
-        <br><br>
-        <button type="submit" class="btn btn-lg btn-primary">Login</button>
+    <form>
+        <input type="text" required >
     </form>
 </div>
 {% endblock %}
