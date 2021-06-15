@@ -8,13 +8,21 @@ Home
     h2{
         color:blue;
     }
-    .img{
+    .img1{
           display: block;
           margin-left: auto;
           margin-right: auto;
-          width:500px;
-          height:500px;
+          width:400px;
+          height:400px;
+
         }
+    .img2{
+        display:block;
+        margin-left:30px;
+        width:80px;
+        height:80px;
+    }
+
     </style>
 {% endblock %}
 
@@ -28,11 +36,10 @@ Home
 {% endblock %}
 {% block content %}
 
-<div class="block-heading center">
-    <h2>Welcome LeTalker's</h2>
-</div>
-<br>
 <div>
-    <img class="img" src="media/chatp1.png">
+    <img class="img1" src="media/chatp1.png">
 </div>
+<div>
+    <img class="img2" src="media/chatp2.png">
+</div><br>
 {% endblock %}
