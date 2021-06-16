@@ -26,11 +26,10 @@ Login
     .login{
     padding-top: 40px;
     color: #8C55AA;
-    font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
     }
-    .un {
+    .field {
     width: 76%;
     color: rgb(38, 50, 56);
     font-weight: 700;
@@ -47,26 +46,6 @@ Login
     margin-left: 46px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-    }
-    .pass {
-    width: 76%;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    border: 2px solid rgba(0, 0, 0, 0.02);
-    margin-bottom: 50px;
-    margin-left: 46px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
     }
     .submit {
     cursor: pointer;
@@ -78,7 +57,6 @@ Login
     padding-right: 40px;
     padding-bottom: 10px;
     padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
     margin-left: 35%;
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
@@ -109,9 +87,10 @@ Login
 
 <div class="main">
     <p class="login" align="center">Login</p>
+    <br>
     <form>
-        <input type="text" required align="center" placeholder="Username" class="un"><br>
-        <input type="password" required align="center" placeholder="Password" class="pass"><br>
+        <input type="text" required align="center" placeholder="Username" class="field"><br>
+        <input type="password" required align="center" placeholder="Password" class="field"><br>
          <a class="submit">Login</a><br><br>
       <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
 
