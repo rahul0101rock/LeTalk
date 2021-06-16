@@ -20,3 +20,7 @@ def login(request):
 def register(request):
     template = loader.get_template('chat/register.html')
     return HttpResponse(template.render())
+
+def profile(request):
+    template = loader.get_template('chat/profile.html')
+    return HttpResponse(template.render())
