@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm, Password
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 from .forms import SignUpForm
+from django.contrib import messages
 f = FileSystemStorage(location='/media')
 
 def index(request):
@@ -28,9 +29,9 @@ def register(request):
 			username = form.cleaned_data['username']
 			password = form.cleaned_data['password1']
 			user = authenticate(username=username, password=password)
-			login(request,user)
-			messages.success(request, ('Youre now registered'))
-			return redirect('home')
+			#login(request,user)
+			messages.success(request, ('User registered'))
+			return redirect('/')
 	else:
 		form = SignUpForm()
 
