@@ -2,7 +2,14 @@
 {% block title%}
 LeTalk | Profile
 {% endblock %}
-
+{% block css %}
+<style>
+img{
+    width:150px;
+    height:150px;
+}
+</style>
+{% endblock %}
 {% block nav %}
 <div class="collapse navbar-collapse" id="navdata">
     <ul class="navbar-nav ms-auto">
@@ -15,4 +22,16 @@ LeTalk | Profile
 {% block content %}
 <h1>Hello {{ request.user.username }}</h1>
 <h2>Your Email is {{ request.user.email }}<h2>
+    <div class="main">
+<form>
+   <img src="/media/user.png" style="border-radius:50%"/>
+   <input type="file" id="myfile" style="display:none"/>
+</form>
+    </div>
+    <div>
+        <p align="center">edit profile</p>
+        <p>first name</p> <input type="text" required value="eg.Abhishek"/>
+        <p>Last name</p> <input type="text" value="eg.Jha"/>
+        <p>Birthday</p><input type="date" >
+    </div>
 {% endblock %}
