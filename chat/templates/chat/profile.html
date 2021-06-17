@@ -7,7 +7,7 @@ LeTalk | Profile
 <div class="collapse navbar-collapse" id="navdata">
     <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                   <a class="nav-link active" href="/profile">{{ request.user }}</a>
+                   <a class="nav-link" href="/profile"><i class="fas fa-user"></i> {{ request.user }}</a>
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a>
     </ul>
 </div>
@@ -15,5 +15,4 @@ LeTalk | Profile
 {% block content %}
 <h1>Hello {{ request.user.username }}</h1>
 <h2>Your Email is {{ request.user.email }}<h2>
-<span class="glyphicon glyphicon-user"></span>
 {% endblock %}

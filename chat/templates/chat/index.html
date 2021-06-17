@@ -32,7 +32,7 @@ LeTalk | Home
     <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
             <li class="nav-item">
-                   <a class="nav-link" href="/profile">{{ request.user }}</a>
+                   <a class="nav-link" href="/profile"><i class="fas fa-user"></i> {{ request.user }}</a>
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a>
         {% else %}
             <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
