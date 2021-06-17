@@ -12,6 +12,7 @@ Home
           display: block;
           margin-left: auto;
           margin-right: auto;
+          margin-top:5%;
           width:400px;
           height:400px;
 
@@ -29,8 +30,15 @@ Home
 {% block nav %}
 <div class="collapse navbar-collapse" id="navdata">
     <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                   <a class="nav-link" href="/">{{ request.user }}</a>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+        {% endif %}
+
     </ul>
 </div>
 {% endblock %}
@@ -39,7 +47,5 @@ Home
 <div>
     <img class="img1" src="media/chatp1.png">
 </div>
-<div>
-    <img class="img2" src="media/chatp2.png">
-</div><br>
+<br>
 {% endblock %}

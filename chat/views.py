@@ -14,20 +14,20 @@ from django.contrib import messages
 f = FileSystemStorage(location='/media')
 
 def index(request):
-    template = loader.get_template('chat/index.html')
-    return HttpResponse(template.render())
+    return render(request, 'chat/index.html')
 
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
+            login(request,user)
             return redirect('/')
         else:return redirect('login')
     else:
         return render(request, 'chat/login.html', {})
-def register(request):
+def user_register(request):
 	if request.method =='POST':
 		form = SignUpForm(request.POST)
 		if form.is_valid():
@@ -35,12 +35,15 @@ def register(request):
 			username = form.cleaned_data['username']
 			password = form.cleaned_data['password1']
 			user = authenticate(username=username, password=password)
-			login(request)
+			login(request,user)
 			return redirect('/')
 	else:
 		form = SignUpForm()
 	return render(request, 'chat/register.html', {'form': form})
 
+def user_logout(request):
+	logout(request)
+	return redirect('/')
+
 def profile(request):
-    template = loader.get_template('chat/profile.html')
-    return HttpResponse(template.render())
+    return render(request, 'chat/index.html')
