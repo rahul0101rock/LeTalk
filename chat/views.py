@@ -17,33 +17,45 @@ def index(request):
     return render(request, 'chat/index.html')
 
 def user_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request,user)
-            return redirect('/')
-        else:return redirect('login')
+    if request.user.is_authenticated:
+        return redirect('/')
     else:
-        return render(request, 'chat/login.html', {})
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request,user)
+                return redirect('/')
+            else:return redirect('login')
+        else:
+            return render(request, 'chat/login.html', {})
 def user_register(request):
-	if request.method =='POST':
-		form = SignUpForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data['username']
-			password = form.cleaned_data['password1']
-			user = authenticate(username=username, password=password)
-			login(request,user)
-			return redirect('/')
-	else:
-		form = SignUpForm()
-	return render(request, 'chat/register.html', {'form': form})
+    if request.user.is_authenticated:
+        return redirect('/')
+    else:
+    	if request.method =='POST':
+    		form = SignUpForm(request.POST)
+    		if form.is_valid():
+    			form.save()
+    			username = form.cleaned_data['username']
+    			password = form.cleaned_data['password1']
+    			user = authenticate(username=username, password=password)
+    			login(request,user)
+    			return redirect('/')
+    	else:
+    		form = SignUpForm()
+    	return render(request, 'chat/register.html', {'form': form})
 
 def user_logout(request):
-	logout(request)
-	return redirect('/')
+    if request.user.is_authenticated:
+    	logout(request)
+    	return redirect('/')
+    else:
+        return redirect('/login')
 
 def profile(request):
-    return render(request, 'chat/index.html')
+    if request.user.is_authenticated:
+        return render(request, 'chat/profile.html')
+    else:
+        return redirect('/')

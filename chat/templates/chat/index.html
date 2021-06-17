@@ -32,7 +32,7 @@ Home
     <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
             <li class="nav-item">
-                   <a class="nav-link" href="/">{{ request.user }}</a>
+                   <a class="nav-link" href="/profile">{{ request.user }}</a>
             <li class="nav-item"><a class="nav-link" href="/logout">Logout</a>
         {% else %}
             <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
@@ -45,7 +45,7 @@ Home
 {% block content %}
 
 <div>
-    <img class="img1" src="media/chatp1.png">
+    <img class="img1" src="/media/chatp1.png">
 </div>
 <br>
 {% endblock %}
