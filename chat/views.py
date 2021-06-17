@@ -9,7 +9,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.core.files.storage import FileSystemStorage
 from django.db import models
-from .forms import SignUpForm
+from .forms import SignUpForm, EditProfileForm
 from django.contrib import messages
 f = FileSystemStorage(location='/media')
 
@@ -56,6 +56,19 @@ def user_logout(request):
 
 def profile(request):
     if request.user.is_authenticated:
-        return render(request, 'chat/profile.html')
+        if request.method =='POST':
+            form = EditProfileForm(request.POST, instance= request.user)
+            if form.is_valid():
+                form.save()
+                return redirect('/')
+        else:
+            form = EditProfileForm(instance= request.user)
+        return render(request, 'chat/profile.html', {'form': form})
     else:
         return redirect('/')
+
+
+
+
+
+

@@ -8,6 +8,10 @@ img{
     width:150px;
     height:150px;
 }
+.main{
+    margin-left:30%;
+    padding:40px;
+}
 </style>
 {% endblock %}
 {% block nav %}
@@ -20,18 +24,20 @@ img{
 </div>
 {% endblock %}
 {% block content %}
-<h1>Hello {{ request.user.username }}</h1>
+<!--<h1>Hello {{ request.user.username }}</h1>
 <h2>Your Email is {{ request.user.email }}<h2>
-    <div class="main">
-<form>
+    <div class="main">-->
+ <form method="POST">
    <img src="/media/user.png" style="border-radius:50%"/>
    <input type="file" id="myfile" style="display:none"/>
-</form>
     </div>
-    <div>
-        <p align="center">edit profile</p>
-        <p>first name</p> <input type="text" required value="eg.Abhishek"/>
-        <p>Last name</p> <input type="text" value="eg.Jha"/>
+    <div class="main">
+        <p>Profile</p>
+        {% csrf_token %}
+        <p>first name {{ form.first_name }} Last name {{ form.last_name }}</p>
+        <p>Email {{ form.email }}</p>
+        <p>Bio </p>{{ form.bio }}
         <p>Birthday</p><input type="date" >
     </div>
+</form>
 {% endblock %}

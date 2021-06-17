@@ -25,3 +25,11 @@ class SignUpForm(UserCreationForm):
 	    self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
 	    self.fields['password2'].label = ''
 	    self.fields['password2'].help_text = ''
+
+class EditProfileForm(UserChangeForm):
+	first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'', 'placeholder':'First Name'}))
+	last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'', 'placeholder':'Last Name'}))
+	bio = forms.CharField(label="", max_length=100,widget=forms.Textarea(attrs={'class':'', 'placeholder':'Add Bio'}) )
+	class Meta:
+		model = User
+		fields = ('username', 'first_name', 'last_name', 'email','bio' ,)
