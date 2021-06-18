@@ -98,4 +98,12 @@ LeTalk | Login
       <br>
     </form>
 </div>
+<br><br><br>
+<h5 class="text-center text-danger">
+{% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+{% endif %}
+</h5>
 {% endblock %}

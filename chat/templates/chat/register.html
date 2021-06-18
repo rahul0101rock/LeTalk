@@ -54,6 +54,11 @@ LeTalk | Register
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     }
+    ul{
+        list-style-type:none;
+        color:red;
+        text-align:center;
+    }
     </style>
 {% endblock %}
 
@@ -71,11 +76,14 @@ LeTalk | Register
     <p class="register" align="center">Register</p><br>
     <form method="POST" action="{% url 'register' %}">
 		{% csrf_token %}
-		{% if form.errors %}
-            {% for field in form%}
-            {% endfor %}
-		{% endif %}
-		{{ form.as_p }}
+		<p>{{form.username}}</p>
+        {{form.username.errors}}
+        <p>{{form.email}}</p>
+        {{form.email.errors}}
+        <p>{{form.password1}}</p>
+        {{form.password1.errors}}
+        <p>{{form.password2}}</p>
+        {{form.password2.errors}}
 		<div class="text-center">
 		<input type="submit" value="Register" class="submit center">
 		</div>

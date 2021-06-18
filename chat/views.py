@@ -27,7 +27,9 @@ def user_login(request):
             if user is not None:
                 login(request,user)
                 return redirect('/')
-            else:return redirect('login')
+            else:
+                messages.error(request, 'Username or Password is Incorrect')
+                return redirect('login')
         else:
             return render(request, 'chat/login.html', {})
 def user_register(request):
