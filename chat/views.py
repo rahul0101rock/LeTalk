@@ -67,7 +67,19 @@ def profile(request):
     else:
         return redirect('/')
 
-
+def change_password(request):
+    if request.user.is_authenticated:
+        if request.method =='POST':
+            form = PasswordChangeForm(data=request.POST, user= request.user)
+            if form.is_valid():
+                form.save()
+                update_session_auth_hash(request, form.user)
+                return redirect('/profile')
+        else:
+            form = PasswordChangeForm(user= request.user)
+        return render(request, 'chat/change_password.html', {'form': form})
+    else:
+        return redirect('/')
 
 
 
