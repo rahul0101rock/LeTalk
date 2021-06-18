@@ -56,7 +56,16 @@ LeTalk | Home
 {% endblock %}
 {% block content %}
 <div>
+    {% if user.is_authenticated %}
+    Search Users <input list="users">
+    <datalist id="users">
+        {% for user_names in user_search %}
+            <option>{{user_names}}</option>
+        {% endfor %}
+    </datalist>
+    {% else %}
     <img class="img1" src="/media/chatp1.png">
+    {% endif %}
 </div>
 <br>
 {% endblock %}

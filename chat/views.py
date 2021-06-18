@@ -11,10 +11,13 @@ from django.core.files.storage import FileSystemStorage
 from django.db import models
 from .forms import SignUpForm, EditProfileForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .models import user_search
 f = FileSystemStorage(location='/media')
 
 def index(request):
-    return render(request, 'chat/index.html')
+    users=User.objects.all()
+    return render(request, 'chat/index.html',{"user_search":users})
 
 def user_login(request):
     if request.user.is_authenticated:

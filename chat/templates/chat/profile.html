@@ -5,18 +5,19 @@ LeTalk | Profile
 {% block css %}
 <style>
 img{
-    width:150px;
-    height:150px;
+    width:250px;
+    height:250px;
+    margin-left:0%;
 }
 .main{
     margin-left:10%;
-    padding:40px;
     float:left;
-    background-color:lightblue;
+    margin-top:4%;
     border-radius:2%;
 }
-.main1{
+.profile_pic{
     float:left;
+    margin-left:auto;
 }
 </style>
 {% endblock %}
@@ -40,18 +41,18 @@ img{
 {% block content %}
 <!--<h1>Hello {{ request.user.username }}</h1>
 <h2>Your Email is {{ request.user.email }}<h2>-->
-    <div class="main1">
+    <div class="profile_pic">
  <form method="POST">
    <img src="/media/user.png" style="border-radius:50%"/>
    <input type="file" id="myfile" style="display:none"/>
     </div>
+    <p style="font-size:large">Profile</p>
+    <hr>
     <div class="main">
-        <p align="center" style="font-size:large">Profile</p>
         {% csrf_token %}
         <p>first name {{ form.first_name }} Last name {{ form.last_name }}</p>
         <p>Email {{ form.email }}</p>
         <p>Bio </p>{{ form.bio }}
-        <p>Birthday</p><input type="date" >
     </div>
 </form>
 {% endblock %}
