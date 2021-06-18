@@ -9,8 +9,14 @@ img{
     height:150px;
 }
 .main{
-    margin-left:30%;
+    margin-left:10%;
     padding:40px;
+    float:left;
+    background-color:lightblue;
+    border-radius:2%;
+}
+.main1{
+    float:left;
 }
 </style>
 {% endblock %}
@@ -33,14 +39,14 @@ img{
 {% endblock %}
 {% block content %}
 <!--<h1>Hello {{ request.user.username }}</h1>
-<h2>Your Email is {{ request.user.email }}<h2>
-    <div class="main">-->
+<h2>Your Email is {{ request.user.email }}<h2>-->
+    <div class="main1">
  <form method="POST">
    <img src="/media/user.png" style="border-radius:50%"/>
    <input type="file" id="myfile" style="display:none"/>
     </div>
     <div class="main">
-        <p>Profile</p>
+        <p align="center" style="font-size:large">Profile</p>
         {% csrf_token %}
         <p>first name {{ form.first_name }} Last name {{ form.last_name }}</p>
         <p>Email {{ form.email }}</p>
