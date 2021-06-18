@@ -74,7 +74,8 @@ def change_password(request):
             if form.is_valid():
                 form.save()
                 update_session_auth_hash(request, form.user)
-                return redirect('/profile')
+                messages.success(request, 'Password Changed Successfully.')
+                return redirect('/change_password')
         else:
             form = PasswordChangeForm(user= request.user)
         return render(request, 'chat/change_password.html', {'form': form})
