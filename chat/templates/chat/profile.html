@@ -12,13 +12,21 @@ img{
 .main{
     margin-left:10%;
     float:left;
-    margin-top:4%;
+    margin-top:2%;
     border-radius:2%;
+    line-height: 1.8;
 }
 .profile_pic{
+    line-height:1.7;
     float:left;
     margin-left:auto;
 }
+button{
+    width:250px;
+    height:30px;
+    padding-bottom:10px;
+}
+
 </style>
 {% endblock %}
 {% block nav %}
@@ -44,7 +52,10 @@ img{
     <div class="profile_pic">
  <form method="POST">
    <img src="/media/user.png" style="border-radius:50%"/>
-   <input type="file" id="myfile" style="display:none"/>
+   <input type="file" id="myfile" style="display:none"/><br>
+   <h3 style="margin-left:25%;margin-top:10%;">{{request.user.username}}</h3><hr>
+   <button type="submit" ><p>New Photo</p></button><br><br>
+   <button type="submit"><p>Remove Photo</p></button>
     </div>
     <p style="font-size:large">Profile</p>
     <hr>
