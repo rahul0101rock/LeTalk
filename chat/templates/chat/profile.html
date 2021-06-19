@@ -13,7 +13,6 @@ img{
     margin-left:10%;
     float:left;
     margin-top:2%;
-    border-radius:2%;
     line-height: 1.8;
 }
 .profile_pic{
@@ -29,6 +28,10 @@ button{
 .user_inp{
     margin-left:20px;
     width:25%;
+    line-height:1.8;
+}
+.clear_float{
+    clear:both;
 }
 </style>
 {% endblock %}
@@ -67,9 +70,11 @@ button{
     <div>
         <forrm>
             First Name<input type="text" class="user_inp"name="first_name" required>
-            Last Name<input type="text" class="user_inp" name="last_name" required>
+            Last Name<input type="text" class="user_inp" name="last_name" required><br>
+            Email <span class="user_inp">{{form.email}}</span>
         </forrm>
     </div>
     </div>
+    <div class="clear_float"></div>
 </form>
 {% endblock %}

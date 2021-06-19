@@ -20,7 +20,7 @@ class friends_list(models.Model):
 class request_list(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sender")
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="receiver")
-    is_active=  models.BooleanField(blank=False, null=False, default=True)
+    is_in=  models.BooleanField(blank=False, null=False, default=True)
 
 
     def allow(self):

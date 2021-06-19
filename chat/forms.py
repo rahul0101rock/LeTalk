@@ -33,3 +33,11 @@ class EditProfileForm(UserChangeForm):
 	class Meta:
 		model = User
 		fields = ('username', 'first_name', 'last_name', 'email','bio' ,)
+
+	def __init__(self, *args, **kwargs):
+	    super(EditProfileForm, self).__init__(*args, **kwargs)
+
+	    self.fields['email'].widget.attrs['class'] = 'user_inp'
+	    self.fields['email'].widget.attrs['placeholder'] = ''
+	    self.fields['email'].label = ''
+	    self.fields['email'].help_text = ''
