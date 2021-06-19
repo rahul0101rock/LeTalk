@@ -26,7 +26,10 @@ button{
     height:30px;
     padding-bottom:10px;
 }
-
+.user_inp{
+    margin-left:20px;
+    width:25%;
+}
 </style>
 {% endblock %}
 {% block nav %}
@@ -53,17 +56,20 @@ button{
  <form method="POST">
    <img src="/media/user.png" style="border-radius:50%"/>
    <input type="file" id="myfile" style="display:none"/><br>
-   <h3 style="margin-left:25%;margin-top:10%;">{{request.user.username}}</h3><hr>
+   <h3 style="text-center">{{request.user.username}}</h3><hr>
    <button type="submit" ><p>New Photo</p></button><br><br>
    <button type="submit"><p>Remove Photo</p></button>
     </div>
-    <p style="font-size:large">Profile</p>
-    <hr>
     <div class="main">
         {% csrf_token %}
-        <p>first name {{ form.first_name }} Last name {{ form.last_name }}</p>
-        <p>Email {{ form.email }}</p>
-        <p>Bio </p>{{ form.bio }}
+    <p style="font-size:large">Profile</p>
+    <hr>
+    <div>
+        <forrm>
+            First Name<input type="text" class="user_inp"name="first_name" required>
+            Last Name<input type="text" class="user_inp" name="last_name" required>
+        </forrm>
+    </div>
     </div>
 </form>
 {% endblock %}
