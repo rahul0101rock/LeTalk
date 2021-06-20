@@ -8,16 +8,6 @@ img{
     width:250px;
     height:250px;
 }
-.main{
-    margin-left:10%;
-    float:left;
-    margin-top:2%;
-    line-height: 1.8;
-}
-.profile_pic{
-    line-height:1.7;
-    float:left;
-}
 button{
     width:250px;
     height:30px;
@@ -34,10 +24,8 @@ button{
 #container_id{
     margin-left:0%;
 }
-#profile-container {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
+#left-col{
+    margin-top:5%;
 }
 </style>
 {% endblock %}
@@ -61,12 +49,22 @@ button{
 {% block content %}
 <div id="container_id">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3" id="left-col">
          <div id="profile-container">
-         <image id="profileImage" src="/media/user.png" />
+         <img id="profileImage" src="/media/user.png" />
+</div>
+<div>
+<h2>{{request.user.username}}</h2><hr>
+<button type="submit" style="width:100%;">New Photo</button>
+<button type="submit" style="width:100%;">Remove Photo </button>
 </div>
 </div>
-        <div class="col-8">hello this is larger box align in right side.<hr></div>
+    <div class="col-9"><h3>Profile</h3><hr>
+       <div class="row">
+           <div class="col-6">First Name<span style="margin-left:10%;">{{form.first_name}}</span></div>
+           <div class="col-6">Last Name<span style="margin-left:10%;">{{form.last_name}}</span></div>
+       </div>
+    </div>
     </div>
 </div>
 {% endblock %}
