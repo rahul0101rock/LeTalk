@@ -57,7 +57,7 @@ LeTalk | Home
 {% block content %}
 <div>
     {% if user.is_authenticated %}
-    Search Users <input list="users">
+    Search Users <input list="users" name="users"> <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
     <datalist id="users">
         {% for user_names in user_search %}
             <option>{{user_names}}</option>

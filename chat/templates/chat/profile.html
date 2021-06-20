@@ -7,7 +7,6 @@ LeTalk | Profile
 img{
     width:250px;
     height:250px;
-    margin-left:0%;
 }
 .main{
     margin-left:10%;
@@ -18,7 +17,6 @@ img{
 .profile_pic{
     line-height:1.7;
     float:left;
-    margin-left:auto;
 }
 button{
     width:250px;
@@ -32,6 +30,14 @@ button{
 }
 .clear_float{
     clear:both;
+}
+#container_id{
+    margin-left:0%;
+}
+#profile-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
 }
 </style>
 {% endblock %}
@@ -53,28 +59,14 @@ button{
 </div>
 {% endblock %}
 {% block content %}
-<!--<h1>Hello {{ request.user.username }}</h1>
-<h2>Your Email is {{ request.user.email }}<h2>-->
-    <div class="profile_pic">
- <form method="POST">
-   <img src="/media/user.png" style="border-radius:50%"/>
-   <input type="file" id="myfile" style="display:none"/><br>
-   <h3 style="text-center">{{request.user.username}}</h3><hr>
-   <button type="submit" ><p>New Photo</p></button><br><br>
-   <button type="submit"><p>Remove Photo</p></button>
+<div id="container_id">
+    <div class="row">
+        <div class="col-4">
+         <div id="profile-container">
+         <image id="profileImage" src="/media/user.png" />
+</div>
+</div>
+        <div class="col-8">hello this is larger box align in right side.<hr></div>
     </div>
-    <div class="main">
-        {% csrf_token %}
-    <p style="font-size:large">Profile</p>
-    <hr>
-    <div>
-        <forrm>
-            First Name<input type="text" class="user_inp"name="first_name" required>
-            Last Name<input type="text" class="user_inp" name="last_name" required><br>
-            Email <span class="user_inp">{{form.email}}</span>
-        </forrm>
-    </div>
-    </div>
-    <div class="clear_float"></div>
-</form>
+</div>
 {% endblock %}
