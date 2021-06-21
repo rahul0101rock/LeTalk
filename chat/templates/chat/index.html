@@ -57,12 +57,15 @@ LeTalk | Home
 {% block content %}
 <div>
     {% if user.is_authenticated %}
-    Search Users <input list="users" name="users"> <button type="submit" class="btn btn-info"><i class="fas fa-search"></i></button>
+    <form method ="POST">
+         {% csrf_token %}
+    Search Users <input list="users" name="r_user"> <button type="submit" class="btn btn-info"><i class="fas fa-plus"></i></button>
     <datalist id="users">
         {% for user_names in user_search %}
             <option>{{user_names}}</option>
         {% endfor %}
     </datalist>
+    </form>
     {% else %}
     <img class="img1" src="/media/chatp1.png">
     {% endif %}

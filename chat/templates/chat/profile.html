@@ -13,11 +13,6 @@ button{
     height:30px;
     padding-bottom:10px;
 }
-.user_inp{
-    margin-left:20px;
-    width:25%;
-    line-height:1.8;
-}
 .clear_float{
     clear:both;
 }
@@ -61,7 +56,12 @@ button{
 </div>
     <div class="col-9"><h3>Profile</h3><hr>
        <div class="row">
-           <div class="col-6">First Name<span style="margin-left:10%;">{{form.first_name}}</span></div>
+           <div class="col-6">
+               <div class="row">
+                   <div class="col-4">First Name</div>
+                   <div class="col-8">{{form.first_name}}</div>
+               </div>
+           </div>
            <div class="col-6">Last Name<span style="margin-left:10%;">{{form.last_name}}</span></div>
        </div>
     </div>

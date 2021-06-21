@@ -12,11 +12,19 @@ from django.db import models
 from .forms import SignUpForm, EditProfileForm
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import user_search
+from .models import user_search,friends_list,request_list
 f = FileSystemStorage(location='/media')
-
 def index(request):
     users=User.objects.all()
+    if request.method == 'POST':
+            user = request.user
+            r_user= request.POST.get("r_user")
+            if r_user:
+                rv = User.objects.get(username=r_user)
+                fr = request_list.objects.filter(sender=user, receiver=rv)
+                if len(fr)==0:
+                    fr_rq = request_list(sender=user, receiver=rv)
+                    fr_rq.save();
     return render(request, 'chat/index.html',{"user_search":users})
 
 def user_login(request):
