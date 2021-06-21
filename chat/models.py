@@ -16,7 +16,7 @@ class friends_list(models.Model):
     def remove_from_list(self,acc):
         if acc in self.friends.all(): self.friends.remove(acc)
         self.save()
-
+    def __str__(self): return self.user.username
 class request_list(models.Model):
     sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sender")
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="receiver")

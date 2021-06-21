@@ -26,11 +26,19 @@ def index(request):
                     rv = User.objects.get(username=r_user)
                     fr = request_list.objects.filter(sender=user, receiver=rv)
                     if len(fr)==0:
+                        if len(friends_list.objects.filter(user=user))==0:flo = friends_list.objects.create(user=user)
+                        else: flo = friends_list.objects.get(user=user)
+                        flo.add_in_list(rv)
                         fr_rq = request_list(sender=user, receiver=rv)
-                        fr_rq.save();
-        u= User.objects.get(username=user)
-        rq=request_list.objects.filter(receiver=u)
+                        fr_rq.save()
+        u = User.objects.get(username=user)
+        rq = request_list.objects.filter(receiver=u)
+        fl=[]
+        if len(friends_list.objects.filter(user=user))==0:flo = friends_list.objects.create(user=user)
+        else: flo = friends_list.objects.get(user=user)
+        for fr in flo.friends.all():fl.append(fr)
         context["requests"]=rq
+        context["friends"]=fl
     return render(request, 'chat/index.html',context)
 
 def user_login(request):

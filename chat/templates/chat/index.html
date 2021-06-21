@@ -60,14 +60,22 @@ LeTalk | Home
             <option>{{user_names}}</option>
         {% endfor %}
     </datalist>
+    </form>
     <br><br>
-    <h3>Request List</h3>
+    <h2>Request List</h2>
     <ul>
         {% for rq in requests %}
         <li>{{rq}}</li>
-    </ul>
         {% endfor %}
-    </form>
+    </ul>
+    <br>
+    <h2>Friends List</h3>
+    <ul>
+        {% for f in friends %}
+        <li>{{f}}</li>
+        {% endfor %}
+    </ul>
+
     {% else %}
     <img class="img1" src="/media/chatp1.png">
     {% endif %}
