@@ -22,7 +22,6 @@ class request_list(models.Model):
     receiver = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="receiver")
     is_in=  models.BooleanField(blank=False, null=False, default=True)
 
-
     def allow(self):
         rl = friends_list.objects.get(user=self.recevier)
         if rl:
@@ -32,5 +31,7 @@ class request_list(models.Model):
     def remove(self):
         self.is_in = False
         self.save()
+
+    def __str__(self): return self.sender.username
 
 

@@ -23,11 +23,6 @@ LeTalk | Home
         width:80px;
         height:80px;
     }
-    ul{
-        list-style-type:none;
-        color:red;
-        text-align:center;
-    }
     </style>
 {% endblock %}
 
@@ -59,12 +54,19 @@ LeTalk | Home
     {% if user.is_authenticated %}
     <form method ="POST">
          {% csrf_token %}
-    Search Users <input list="users" name="r_user"> <button type="submit" class="btn btn-info"><i class="fas fa-plus"></i></button>
+    Send Request <input list="users" name="r_user"> <button type="submit" class="btn btn-info"><i class="fas fa-plus"></i></button>
     <datalist id="users">
         {% for user_names in user_search %}
             <option>{{user_names}}</option>
         {% endfor %}
     </datalist>
+    <br><br>
+    <h3>Request List</h3>
+    <ul>
+        {% for rq in requests %}
+        <li>{{rq}}</li>
+    </ul>
+        {% endfor %}
     </form>
     {% else %}
     <img class="img1" src="/media/chatp1.png">
