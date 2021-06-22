@@ -4,24 +4,7 @@ LeTalk | Profile
 {% endblock %}
 {% block css %}
 <style>
-img{
-    width:250px;
-    height:250px;
-}
-button{
-    width:250px;
-    height:30px;
-    padding-bottom:10px;
-}
-.clear_float{
-    clear:both;
-}
-#container_id{
-    margin-left:0%;
-}
-#left-col{
-    margin-top:5%;
-}
+
 </style>
 {% endblock %}
 {% block nav %}
@@ -42,29 +25,24 @@ button{
 </div>
 {% endblock %}
 {% block content %}
-<div id="container_id">
-    <div class="row">
-        <div class="col-3" id="left-col">
-         <div id="profile-container">
-         <img id="profileImage" src="/media/user.png" />
-</div>
-<div>
-<h2>{{request.user.username}}</h2><hr>
-<button type="submit" style="width:100%;">New Photo</button>
-<button type="submit" style="width:100%;">Remove Photo </button>
-</div>
-</div>
-    <div class="col-9"><h3>Profile</h3><hr>
-       <div class="row">
-           <div class="col-6">
-               <div class="row">
-                   <div class="col-4">First Name</div>
-                   <div class="col-8">{{form.first_name}}</div>
-               </div>
-           </div>
-           <div class="col-6">Last Name<span style="margin-left:10%;">{{form.last_name}}</span></div>
-       </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+        <img id="profileImage" class="img-fluid" src="/media/user.png" />
+        <div class="text-center"><h2>{{request.user.username}}</h2><hr></div>
+        <button type="submit" style="width:100%;">New Photo</button>
+        <button type="submit" style="width:100%;">Remove Photo </button>
     </div>
+    <div class="col-md-9">
+        <h3>Profile</h3><hr>
+        <div class="row">
+           <div class="col-md-2">First Name</div>
+           <div class="col-md-4">{{form.first_name}}</div>
+           <div class="col-md-2">Last Name</div>
+           <div class="col-md-4">{{form.last_name}}</div>
+        </div>
     </div>
+ </div>
 </div>
 {% endblock %}
