@@ -4,7 +4,26 @@ LeTalk | Profile
 {% endblock %}
 {% block css %}
 <style>
-
+.email_box{
+    width:82%;
+}
+.inp_box{
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: inset;
+    }
+.bio_box{
+    width:63%;
+    height:45%;
+    background-color: #d0e2bc;
+    font: cursive;
+    font-size:small;
+    border-radius:5px;
+}
+.font_field{
+    font-size:large;
+}
 </style>
 {% endblock %}
 {% block nav %}
@@ -31,18 +50,33 @@ LeTalk | Profile
     <div class="col-md-3">
         <img id="profileImage" class="img-fluid" src="/media/user.png" />
         <div class="text-center"><h2>{{request.user.username}}</h2><hr></div>
-        <button type="submit" style="width:100%;">New Photo</button>
+        <button type="submit" style="width:100%;">New Photo</button><br><br>
         <button type="submit" style="width:100%;">Remove Photo </button>
     </div>
     <div class="col-md-9">
-        <h3>Profile</h3><hr>
-        <div class="row">
+        <h3>Profile</h3><hr>N
+        <div class="row font_field ">
            <div class="col-md-2">First Name</div>
            <div class="col-md-4">{{form.first_name}}</div>
            <div class="col-md-2">Last Name</div>
            <div class="col-md-4">{{form.last_name}}</div>
         </div>
-    </div>
+        <br><br>
+        <div class="row font_field">
+           <div class="col-md-2">Email</div>
+           <div class="col-md-4">{{form.email}}</div>
+           <div class="col-md-2">DOB</div>
+           <div class="col-md-4"><input type="date" placeholder="birthday"></div>
+        </div><br><br>
+        <div class="row font_field">
+           <div class="col-md-2">About Me</div>
+           <div class="col-md-10">{{form.bio}}</div>
+        </div>
+        <div class="row">
+           <div class="col-md-10" style="text-align:right;"><button type="reset" >Reset changes</button></div>
+           <div class="col-md-2" style="text-align:left;"><button type="submit" >Save changes</button></div>
+        </div>
+  </div>
  </div>
 </div>
 {% endblock %}

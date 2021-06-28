@@ -4,6 +4,7 @@ LeTalk | Home
 {% endblock %}
 
 {% block css %}
+$blue:#74b9ff;
     <style>
     h2{
         color:blue;
@@ -22,6 +23,61 @@ LeTalk | Home
         margin-left:30px;
         width:80px;
         height:80px;
+    }
+    .profile-image{
+        width:50px;
+        height:50px;
+        border-radius:25px;
+    }
+    .setting-tray{
+        background:#eee;
+        padding:10px 15px;
+        border-radius:7px;
+    }
+    .search-box{
+        padding:10px 15px;
+        background:#fafafa;
+
+        .input-wrapper{
+            background:white;
+            border-radius:40px;
+        }
+    }
+    input{
+        width:80%;
+        border:none;
+        border-radius:40px;
+        margin-left:10px;
+    }
+    input:focus{
+        outline:none;
+    }
+    .friend-drawer{
+        padding:10px 15px;
+        display:flex;
+        vertical-align:baseline;
+        background:#fff;
+        transition:.3s ease;
+    }
+    .friend-drawer:hover{
+        background:powderblue;
+        cursor:pointer;
+    }
+    .text{
+            margin-left:12px;
+            width:70%;
+        }
+
+    h6{
+            margin-top:6px;
+            margin-bottom:0;
+        }
+    p{
+            margin:0;
+        }
+    hr{
+        margin:5px auto;
+        width:60%;
     }
     </style>
 {% endblock %}
@@ -52,30 +108,40 @@ LeTalk | Home
 {% block content %}
 <div>
     {% if user.is_authenticated %}
-    <form method ="POST">
-         {% csrf_token %}
-    Send Request <input list="users" name="r_user"> <button type="submit" class="btn btn-info"><i class="fas fa-plus"></i></button>
-    <datalist id="users">
-        {% for user_names in user_search %}
-            <option>{{user_names}}</option>
-        {% endfor %}
-    </datalist>
-    </form>
-    <br><br>
-    <h2>Request List</h2>
-    <ul>
-        {% for rq in requests %}
-        <li>{{rq}}</li>
-        {% endfor %}
-    </ul>
-    <br>
-    <h2>Friends List</h3>
-    <ul>
-        {% for f in friends %}
-        <li>{{f}}</li>
-        {% endfor %}
-    </ul>
-
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <div class="setting-tray">
+                    <img class="profile-image" src="/media/user.png" alt="profile image">
+                    <span class="setting-tray--right float-right">
+                        <i class="material-icons">refresh</i>
+                        <i class="material-icons">message</i>
+                        <i class="materail-icons">menu</i>
+                    </span>
+                </div>
+                <div class="search-box">
+                    <div class="input-wrapper">
+                        <i class="materail-icons">search</i>
+                        <input type="text" placeholder="search here">
+                    </div>
+                </div>
+                {% for f in friends %}
+                <div class="friend-drawer friend-drawer--onhover">
+                    <img src="/media/user.png" class="profile-image" alt="profile image">
+                    <div class="text">
+                        <h6>{{f}}</h6>
+                        <p >this message will appear here!</p>
+                    </div>
+                    <span class="time text-muted small">hh:mm</span>
+                </div>
+                {% endfor %}
+                    <span class="time text-muted small">hh:mm</span>
+                </div>
+                <hr>
+            </div>
+            <div class="col-md-8">this is right</div>
+        </div>
+    </div>
     {% else %}
     <img class="img1" src="/media/chatp1.png">
     {% endif %}

@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
 	def __init__(self, *args, **kwargs):
 	    super(SignUpForm, self).__init__(*args, **kwargs)
 
-	    self.fields['username'].widget.attrs['class'] = 'form-control field'
+	    self.fields['username'].widget.attrs['class'] = 'form-control field '
 	    self.fields['username'].widget.attrs['placeholder'] = 'User Name'
 	    self.fields['username'].label = ''
 	    self.fields['username'].help_text = ''
@@ -27,9 +27,9 @@ class SignUpForm(UserCreationForm):
 	    self.fields['password2'].help_text = ''
 
 class EditProfileForm(UserChangeForm):
-	first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'', 'placeholder':'First Name'}))
-	last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'', 'placeholder':'Last Name'}))
-	bio = forms.CharField(label="", max_length=100,widget=forms.Textarea(attrs={'class':'', 'placeholder':'Add Bio'}) )
+	first_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'inp_box', 'placeholder':'First Name'}))
+	last_name = forms.CharField(label="", max_length=100, widget=forms.TextInput(attrs={'class':'inp_box', 'placeholder':'Last Name'}))
+	bio = forms.CharField(label="", max_length=100,widget=forms.Textarea(attrs={'class':'bio_box', 'placeholder':'Add Bio'}) )
 	class Meta:
 		model = User
 		fields = ('username', 'first_name', 'last_name', 'email','bio' ,)
@@ -37,7 +37,9 @@ class EditProfileForm(UserChangeForm):
 	def __init__(self, *args, **kwargs):
 	    super(EditProfileForm, self).__init__(*args, **kwargs)
 
-	    self.fields['email'].widget.attrs['class'] = 'user_inp'
+	    self.fields['email'].widget.attrs['class'] = 'email_box inp_box'
 	    self.fields['email'].widget.attrs['placeholder'] = ''
 	    self.fields['email'].label = ''
 	    self.fields['email'].help_text = ''
+
+
